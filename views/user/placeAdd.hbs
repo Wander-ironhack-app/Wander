@@ -1,2 +1,24 @@
 <h2>Hello</h2>
 
+<p>name of your favorite place</p>
+
+<form action="/addPlace" method="POST"\>
+  <label for="name">Name</label> 
+  <input id="name" type="text" name="name">
+  
+<script>  
+    map.on('load', function() {
+    geocoder.on('result', function(e) {
+    map.getSource('single-point').setData(e.result.geometry);
+    console.log('Hello, that is the string');
+  });
+    })
+ 
+</script>
+
+  <button type="submit">Save</button>
+</form>
+
+
+
+

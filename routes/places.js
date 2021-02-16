@@ -12,19 +12,22 @@ router.get('/', (req, res, next) => {
 
 */ 
 
+//router.get('xxxxx', (req, res, next) => {
+//  Place.findById(req.params.id.geometry.coordinate)
+//})
 
 
-
-
-/* placeAdd route  */ 
-router.get('/', (req, res, next) => {
-  Place.find().then(places => {
-    res.render('user/placeAdd.hbs', { places });
+router.post('/addPlace', (req,res,next) => {
+  const {name, coordinates} = req.body; 
+  Place.create({name, coordinates})
+  .then(place => {
+    console.log('THIS IS THE PLACE',place)
+  }).catch(err => {
+    console.log(err); 
   })
-    .catch(err => {
-      next(err);
-    });
-});
+})
+
+//e.result.geometry.coordinates
 
 
 /*

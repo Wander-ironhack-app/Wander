@@ -6,5 +6,12 @@ router.get("/", (req, res, next) => {
 });
 
 
+/*GET*/
+router.get("/add", (req, res, next) => {
+  res.render("user/placeAdd.hbs");
+});
+
+
+
 module.exports = router;
 
