@@ -58,12 +58,14 @@ map.on('load', function() {
     map.getSource('single-point').setData(e.result.geometry);
     console.log(e.result);
 
+ 
+
     const long = e.result.geometry.coordinates[0];
     const lat = e.result.geometry.coordinates[1]; 
     document.querySelector('#saveLocation').onclick = function (){
       console.log(long, lat) 
-      axios.post('http://localhost:3000/addPlace', {coordinates: [long, lat]})
-      .then(response => console.log(reponse))
+      axios.post('http://localhost:3000/addPlace', {coordinates: [long, lat], name: e.result.text} )
+      .then(response => console.log(response))
       .catch(err => console.log(err))
     }
 
