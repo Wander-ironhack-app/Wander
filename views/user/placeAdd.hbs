@@ -1,11 +1,17 @@
-<h2>Hello</h2>
+{{!-- <h2>Hello</h2>
 
 <p>name of your favorite place</p>
 
 <form action="/addPlace" method="POST"\>
   <label for="name">Name</label> 
   <input id="name" type="text" name="name">
-  
+
+
+
+ <button type="submit">Save</button>
+</form> --}}
+<button id="saveLocation">Save location</button>
+
 <script>  
     map.on('load', function() {
     geocoder.on('result', function(e) {
@@ -15,10 +21,6 @@
     })
  
 </script>
-
-  <button type="submit">Save</button>
-</form>
-
 
 
 

@@ -57,6 +57,17 @@ map.on('load', function() {
   geocoder.on('result', function(e) {
     map.getSource('single-point').setData(e.result.geometry);
     console.log(e.result);
+
+    const long = e.result.geometry.coordinates[0];
+    const lat = e.result.geometry.coordinates[1]; 
+    document.querySelector('#saveLocation').onclick = function (){
+      console.log(long, lat) 
+      axios.post('http://localhost:3000/addPlace', {coordinates: [long, lat]})
+      .then(response => console.log(reponse))
+      .catch(err => console.log(err))
+    }
+
+
   });
 });
 
