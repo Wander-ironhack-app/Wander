@@ -36,7 +36,35 @@ router.get('/favoritesPlaces', (req,res,next) => {
   });
 });
 
-//router.get('/favoritePlace')
+
+//Delete a place 
+router.post('/favoritePlaces/:id/delete', (req, res, next) => {
+  Celebrity.findOneAndDelete({ _id : req.params.id })
+    .then(() => {
+      console.log('DELETEDDDDDDD')
+      res.redirect('favoritePlaces');
+    })
+    .catch(err => {
+      next(err);
+    })
+});
+
+
+
+
+// //GET to a specific place 
+ router.get("/favoritesPlaces/:id", (req,res, next) => {
+  const placeId = req.params.id; 
+  console.log(placeId);
+  Place.findById(placeId).then(place => {
+     res.render('user/placeDetails', {place});
+   }).catch(err => {
+    next(err);
+    })
+ });
+
+
+
 
 
 
