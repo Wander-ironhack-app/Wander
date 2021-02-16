@@ -18,6 +18,9 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require("./config")(app);
 
+const cors = require("cors");
+app.use(cors())
+
 // default value for title local
 const projectName = "Wander";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();

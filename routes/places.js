@@ -18,13 +18,14 @@ router.get('/', (req, res, next) => {
 
 
 router.post('/addPlace', (req,res,next) => {
-  const {name, coordinates} = req.body; 
-  Place.create({name, coordinates})
-  .then(place => {
-    console.log('THIS IS THE PLACE',place)
-  }).catch(err => {
-    console.log(err); 
-  })
+  //const {name, coordinates} = req.body; 
+  // Place.create({name, coordinates})
+  // .then(place => {
+  //   console.log('THIS IS THE PLACE',place)
+  // }).catch(err => {
+  //   console.log(err); 
+  // })
+  console.log(req.body)
 })
 
 //e.result.geometry.coordinates
